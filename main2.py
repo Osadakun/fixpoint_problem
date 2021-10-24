@@ -13,7 +13,7 @@ def duration(start_time,end_time):      # 経過時間を返す関数
 
 def solve_problem():
     N = 3                                          # 回数で弾くためのパラメータ
-    f = open('log.txt', 'r', encoding='UTF-8')
+    f = open('log2.txt', 'r', encoding='UTF-8')
     data = [line.strip() for line in f.readlines()]    # 行要素を改行文字除去してリスト化
     for i in range(len(data)):
         data[i] = data[i].split(',')                   # 各行要素ごとに分ける(これで各要素に対してインデント指定でアクセスできる)

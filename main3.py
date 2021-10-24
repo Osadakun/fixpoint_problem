@@ -19,16 +19,18 @@ def solve_problem():
     for i in range(len(data)):
         data[i] = data[i].split(',')                   # 各行要素ごとに分ける(これで各要素に対してインデント指定でアクセスできる)
     for i in data:
+        if (i[2]) == '-':
+            continue
         same_address = [j for j in data if i[0] < j[0] and (i[1] == j[1]) and j[2] != '-']    # タイムアウトが起きたサーバアドレスと同じサーバアドレスを取得(タイムアウトが起きた後のみ)
         if same_address == [] or len(same_address) < m:
             continue
-        sum = 0
-        for cnt in range(m):
+        sum = int(i[2])
+        for cnt in range(m-1):
             sum += int(same_address[cnt][2])
         avg = sum / m
         if avg >= t:
             time = duration(i[0], same_address[-1][0])
-            print('故障状態のサーバアドレス：%s \n故障期間：%s' %(i[1],time))
+            print('過負荷状態のサーバアドレス：%s \n過負荷状態の期間：%s' %(i[1],time))
     f.close()
 
 solve_problem()
